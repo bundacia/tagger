@@ -27,3 +27,8 @@ group :development do
   gem 'spring'
 end
 
+group :test do
+  gem 'cucumber'
+  gem 'cucumber-api-steps', :require => false
+end
+
