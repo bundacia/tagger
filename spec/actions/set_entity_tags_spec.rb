@@ -24,6 +24,7 @@ describe SetEntityTags do
       subject.call
       expect(persisted_tags).to eq tags
     end
+
   end
 
   context "when entity already exists" do
@@ -40,6 +41,14 @@ describe SetEntityTags do
       subject.call
       expect(persisted_tags).to eq tags
       expect(persisted_tags).not_to eq original_tags
+    end
+
+    context "when no tags given" do
+      let(:tags) { nil }
+      it "removes any existing tags" do
+        subject.call
+        expect(persisted_tags).to be_empty
+      end
     end
   end
 end
