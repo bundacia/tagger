@@ -13,6 +13,14 @@ Feature: Tagging
       }
       """
     Then the response status should be "201"
+    And the JSON response should be:
+      """
+      {
+        "entity_type": "article",
+        "entity_id": "1234",
+        "tags": ["large", "pink", "blue"]
+      }
+      """
 
   Scenario: Retrieve an Entry
     Given I send a POST request to "/tags" with the following:

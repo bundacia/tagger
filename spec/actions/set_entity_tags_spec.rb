@@ -15,6 +15,10 @@ describe SetEntityTags do
 
   let(:persisted_tags) { Entity.first.tags.map(&:tag).sort }
 
+  it "returns the entity" do
+    expect(subject.call).to be_an Entity
+  end
+
   context "when entity does not already exists" do
     it "creates the entity" do
       expect { subject.call }.to change { Entity.count }.from(0).to(1)

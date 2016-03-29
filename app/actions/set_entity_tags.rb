@@ -7,12 +7,13 @@ class SetEntityTags
   end
 
   def call
-    entity = create_or_fetch_entity
-    # NOTE: this is potentially destroying tags only to recreate some of the
-    # same ones. If performance becomes an issue we could optimize this to be
-    # smarter.
-    entity.tags.destroy_all
-    entity.tags.create tags
+    create_or_fetch_entity.tap do |entity|
+      # NOTE: this is potentially destroying tags only to recreate some of the
+      # same ones. If performance becomes an issue we could optimize this to be
+      # smarter.
+      entity.tags.destroy_all
+      entity.tags.create tags
+    end
   end
 
   private
