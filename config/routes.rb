@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'test#test'
 
   post '/tags' => 'tags#set_tags'
-  # get '/tags/:entity_type/:entity_id' => 'tag_lists#show'
+  get '/tags/:entity_type/:entity_id' => 'tags#show'
   # delete '/tags/:entity_type/:entity_id'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
