@@ -73,3 +73,5 @@ Feature: Tagging
       """
     When I send a DELETE request to "/tags/article/1234"
     Then the response status should be "204"
+    When I send a GET request to "/tags/article/1234"
+    Then the response status should be "404"
