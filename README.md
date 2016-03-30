@@ -32,10 +32,10 @@ This API includes a [swagger](http://swagger.io/) [specification](/public/swagge
 Most of this is pretty straight forward, but let me hilight a few parts of the codebase.
 
 ### /features
-You'll find cucumber tests in the `features` directory, which also serve as decent documentation for how the API is intenmded to work. These are integration tests that interact with the app through rack.
+You'll find cucumber tests in the [/features](/features) directory, which also serve as decent documentation for how the API is intenmded to work. These are integration tests that interact with the app through rack.
 
 ### /spec
-Unit tests can be found in the `spec` directory.
+Unit tests can be found in the [/spec](/spec) directory.
 
 ### /actions
 I prefer not to have much of any business logic in ActiveRecord models (which I think should only really be responsible for persistence) or controllers (which I see as responsible for http-specific things like response codes and pulling params out of the request). To that end I often end up writing "action" objects to encapsulate business logic when a controller action would otherwise have to make multiple calls to ActiveRecord object methods. 
