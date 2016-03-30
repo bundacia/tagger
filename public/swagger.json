@@ -1,0 +1,212 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Tagger API",
+        "description": "Tag all the things!",
+        "version": "1.0.0"
+    },
+    "host": "localhost:3000",
+    "schemes": [
+        "http"
+    ],
+    "basePath": "/",
+    "produces": [
+        "application/json"
+    ],
+    "tags": [
+      {
+        "name": "Entities",
+        "description": ""
+      },
+      {
+        "name": "Stats",
+        "description": ""
+      }
+    ],
+    "paths": {
+        "/entities": {
+            "post": {
+                "tags": [ "Entities" ],
+                "summary": "Create or Update a tagged entity",
+                "description": "Creates a new entity with 0 or more tags. If the entity exists it's tags will be overwritten.\n",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Entity"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "The Created Entity",
+                        "schema": {
+                            "$ref": "#/definitions/Entity"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/entities/{entity_type}/{entity_id}": {
+            "get": {
+                "tags": [ "Entities" ],
+                "summary": "Fetch an entity",
+                "parameters": [
+                    {
+                        "name": "entity_type",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "entity_id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Entity",
+                        "schema": {
+                            "$ref": "#/definitions/Entity"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request, possibly due to a missing parameter",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "404": {
+                        "description": "Entity not found"
+                    }
+                }
+            }
+        },
+        "/stats": {
+            "get": {
+                "tags": [ "Stats" ],
+                "summary": "Fetch stats about all tags",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/TagStats"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request, possibly due to a missing parameter",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "404": {
+                        "description": "Entity not found"
+                    }
+                }
+            }
+        },
+        "/stats/{entity_type}/{entity_id}": {
+            "get": {
+                "tags": [ "Stats" ],
+                "summary": "Fetch stats about an entity",
+                "parameters": [
+                    {
+                        "name": "entity_type",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "entity_id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Entity's Stats",
+                        "schema": {
+                            "$ref": "#/definitions/EntityStats"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request, possibly due to a missing parameter",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "404": {
+                        "description": "Entity not found"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Entity": {
+            "type": "object",
+            "properties": {
+                "entity_id": {
+                    "type": "string",
+                    "description": "Identifier for this entity. Must be unique for entities with the same entity type."
+                },
+                "entity_type": {
+                    "type": "string",
+                    "description": "Type of the entity."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "EntityStats": {
+            "type": "object",
+            "properties": {
+                "tag_count": {
+                    "type": "integer",
+                    "description": "The number of tags this entity has."
+                }
+            }
+        },
+        "TagStats": {
+            "type": "object",
+            "properties": {
+                "tag_counts": {
+                    "type": "array",
+                    "items": {
+                        "properties": {
+                            "tag": {
+                                "type": "string"
+                            },
+                            "count": {
+                                "type": "integer"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "Error": {
+            "type": "object",
+            "properties": {
+                "error": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

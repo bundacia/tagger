@@ -21,6 +21,12 @@ can run everything in one go with this handy script:
 script/run_tests
 ```
 
+## Swagger Documentation
+
+This API includes a [swagger](http://swagger.io/) [specification](/public/swagger.json) which has been used to autogenerate the interactive html documentation here:
+
+[http://localhost:3000](http://localhost:3000)
+
 ## A Tour Of The Code
 
 Most of this is pretty straight forward, but let me hilight a few parts of the codebase.
