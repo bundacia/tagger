@@ -20,6 +20,15 @@ class TagsController < ActionController::API
     render nothing: true, status: 204
   end
 
+  def show_stats
+    entity = get_entity
+    render json: EntityStatsPresenter.new(entity), status: 200
+  end
+
+  def show_summary_stats
+    render nothing: true
+  end
+
   private
 
   def get_entity

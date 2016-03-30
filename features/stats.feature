@@ -6,27 +6,15 @@ Feature: Stats
   Scenario: Getting Summary Stats
     Given I send a POST request to "/tags" with the following:
       """
-      {
-        "entity_type": "article",
-        "entity_id": "111",
-        "tags": ["A", "B", "C"]
-      }
+      { "entity_type": "foo", "entity_id": "1", "tags": ["A", "B", "C"] }
       """
     And I send a POST request to "/tags" with the following:
       """
-      {
-        "entity_type": "article",
-        "entity_id": "222",
-        "tags": ["A", "B"]
-      }
+      { "entity_type": "foo", "entity_id": "2", "tags": ["A", "B"] }
       """
     And I send a POST request to "/tags" with the following:
       """
-      {
-        "entity_type": "article",
-        "entity_id": "333",
-        "tags": ["A"]
-      }
+      { "entity_type": "foo", "entity_id": "3", "tags": ["A"] }
       """
     When I send a GET request to "/stats"
     Then the response status should be "200"
@@ -44,17 +32,11 @@ Feature: Stats
   Scenario: Getting Stats About A Specific Entity
     Given I send a POST request to "/tags" with the following:
       """
-      {
-        "entity_type": "article",
-        "entity_id": "1234",
-        "tags": ["A", "B", "C"]
-      }
+      { "entity_type": "foo", "entity_id": "1", "tags": ["A", "B", "C"] }
       """
     When I send a GET request to "/stats/article/1234"
     Then the response status should be "200"
     And the JSON response should be:
       """
-      {
-        "tag_count": 3
-      }
+      { "tag_count": 3 }
       """
