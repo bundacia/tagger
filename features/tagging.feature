@@ -22,6 +22,22 @@ Feature: Tagging
       }
       """
 
+  Scenario: Attempt to Create an Entry incomplete data
+    When I send a POST request to "/tags" with the following:
+      """
+      {
+        "entity_id": "1234",
+        "tags": ["large", "pink", "blue"]
+      }
+      """
+    Then the response status should be "400"
+    And the JSON response should be:
+      """
+      {
+        "error": "entity_type is required"
+      }
+      """
+
   Scenario: Retrieve an Entry
     Given I send a POST request to "/tags" with the following:
       """

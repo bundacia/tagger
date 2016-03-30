@@ -1,8 +1,8 @@
 class SetEntityTags
 
   def initialize(args)
-    @entity_id   = args[:entity_id]   or raise "entity_id is required"
-    @entity_type = args[:entity_type] or raise "entity_type is required"
+    @entity_id   = args[:entity_id]   or raise Exceptions::BadRequest, "entity_id is required"
+    @entity_type = args[:entity_type] or raise Exceptions::BadRequest, "entity_type is required"
     @tag_names   = args[:tags] || []
   end
 

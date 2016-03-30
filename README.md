@@ -1,7 +1,6 @@
 # Tagger
 
 ## TODO
-* stats endpoint
 * consider simplifying external_id naming
 * document reasoning in this readme including:
   1. cucumber-rest-api
@@ -9,3 +8,4 @@
 * swagger
 * rename tage controller. it's really an entity controller
 * logging
+* error handling

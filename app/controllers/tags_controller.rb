@@ -1,4 +1,4 @@
-class TagsController < ActionController::API
+class TagsController < ApplicationController
 
   def set_tags
     entity = SetEntityTags.new(
