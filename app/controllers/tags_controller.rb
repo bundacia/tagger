@@ -11,7 +11,7 @@ class TagsController < ActionController::API
 
   def show
     entity = get_entity
-    render json: EntityPresenter.new(entity), status: 200
+    render json: EntityPresenter.new(entity)
   end
 
   def destroy
@@ -22,11 +22,11 @@ class TagsController < ActionController::API
 
   def show_stats
     entity = get_entity
-    render json: EntityStatsPresenter.new(entity), status: 200
+    render json: EntityStatsPresenter.new(entity)
   end
 
   def show_summary_stats
-    render nothing: true
+    render json: TagStatsReport.new
   end
 
   private

@@ -16,6 +16,7 @@ gem 'oj_mimic_json'
 
 group :development, :test do
   gem 'pry-byebug'
+  gem 'database_cleaner'
   gem 'rspec-rails'
   gem 'rspec-its'
   gem 'factory_girl_rails'

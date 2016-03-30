@@ -58,6 +58,7 @@ GEM
     cucumber-core (1.4.0)
       gherkin (~> 3.2.0)
     cucumber-wire (0.0.1)
+    database_cleaner (1.5.1)
     debug_inspector (0.0.2)
     diff-lcs (1.2.5)
     erubis (2.7.0)
@@ -185,6 +186,7 @@ PLATFORMS
 DEPENDENCIES
   cucumber
   cucumber-api-steps
+  database_cleaner
   factory_girl_rails
   jbuilder (~> 2.0)
   oj

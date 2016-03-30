@@ -22,9 +22,9 @@ Feature: Stats
       """
       {
         "tag_counts": [
-          {tag: "A", count: 3},
-          {tag: "B", count: 2},
-          {tag: "C", count: 1}
+          {"tag": "A", "count": 3},
+          {"tag": "B", "count": 2},
+          {"tag": "C", "count": 1}
         ]
       }
       """
@@ -34,7 +34,7 @@ Feature: Stats
       """
       { "entity_type": "foo", "entity_id": "1", "tags": ["A", "B", "C"] }
       """
-    When I send a GET request to "/stats/article/1234"
+    When I send a GET request to "/stats/foo/1"
     Then the response status should be "200"
     And the JSON response should be:
       """
