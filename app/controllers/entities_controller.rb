@@ -1,4 +1,4 @@
-class TagsController < ApplicationController
+class EntitiesController < ApplicationController
 
   def set_tags
     entity = SetEntityTags.new(

@@ -4,15 +4,15 @@ Feature: Stats
     Given I send and accept JSON
 
   Scenario: Getting Summary Stats
-    Given I send a POST request to "/tags" with the following:
+    Given I send a POST request to "/entities" with the following:
       """
       { "entity_type": "foo", "entity_id": "1", "tags": ["A", "B", "C"] }
       """
-    And I send a POST request to "/tags" with the following:
+    And I send a POST request to "/entities" with the following:
       """
       { "entity_type": "foo", "entity_id": "2", "tags": ["A", "B"] }
       """
-    And I send a POST request to "/tags" with the following:
+    And I send a POST request to "/entities" with the following:
       """
       { "entity_type": "foo", "entity_id": "3", "tags": ["A"] }
       """
@@ -30,7 +30,7 @@ Feature: Stats
       """
 
   Scenario: Getting Stats About A Specific Entity
-    Given I send a POST request to "/tags" with the following:
+    Given I send a POST request to "/entities" with the following:
       """
       { "entity_type": "foo", "entity_id": "1", "tags": ["A", "B", "C"] }
       """
