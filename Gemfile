@@ -21,7 +21,9 @@ group :development, :test do
   gem 'rspec-its'
   gem 'factory_girl_rails'
   gem 'cucumber'
-  gem 'cucumber-api-steps', :require => false
+  gem 'cucumber-api-steps', :git => "https://github.com/bundacia/cucumber-api-steps.git",
+                            :branch => "bugfix",
+                            :require => false
 end
 
 group :development do

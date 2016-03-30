@@ -1,3 +1,13 @@
+GIT
+  remote: https://github.com/bundacia/cucumber-api-steps.git
+  revision: c1ab6c636b35ec2c5699c8bd95f80bfdd7f8bbc6
+  branch: bugfix
+  specs:
+    cucumber-api-steps (0.13)
+      cucumber (>= 1.2.1)
+      jsonpath (>= 0.1.2)
+      rspec (>= 2.12.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -51,10 +61,6 @@ GEM
       gherkin (~> 3.2.0)
       multi_json (>= 1.7.5, < 2.0)
       multi_test (>= 0.1.2)
-    cucumber-api-steps (0.13)
-      cucumber (>= 1.2.1)
-      jsonpath (>= 0.1.2)
-      rspec (>= 2.12.0)
     cucumber-core (1.4.0)
       gherkin (~> 3.2.0)
     cucumber-wire (0.0.1)
@@ -185,7 +191,7 @@ PLATFORMS
 
 DEPENDENCIES
   cucumber
-  cucumber-api-steps
+  cucumber-api-steps!
   database_cleaner
   factory_girl_rails
   jbuilder (~> 2.0)
